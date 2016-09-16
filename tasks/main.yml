@@ -1,0 +1,8 @@
+---
+- name: Install DrawnStrips Reader via Mac App Store
+  command: mas install "{{ item.id }}"
+  args:
+    creates: /Applications/{{ item.name }}.app
+  with_items:
+    - { id: 473092872, name: "DrawnStrips Reader" }
+  when: ansible_os_family == "Darwin"
